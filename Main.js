@@ -14,7 +14,7 @@ async function fetchData() {
             throw new Error(`Network response was not ok: ${response.statusText}`);
         }
         const data = await response.json();
-        console.log(JSON.stringify(data, null, 2)); // This will display the JSON data in a readable format
+        //console.log(JSON.stringify(data, null, 2)); // This will display the JSON data in a readable format on the console
         fs.writeFile('data.json', JSON.stringify(data, null, 2), (err) => {
             if (err) {
                 console.error('Error writing to file:', err);
