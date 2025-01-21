@@ -1,3 +1,3 @@
 # ValorantCustomTracker
 
-A program that will track your custom games and create your overal statistics after each game
+A program that will track your custom games and create your overall statistics after each game
