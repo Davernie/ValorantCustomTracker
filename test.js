@@ -1,15 +1,11 @@
-const data = [
-    { name: 'Alice', kills: 5 },
-    { name: 'Bob', kills: 8 }
-];
+const express = require('express');
+const app = express();
+const port = 3000;
 
-// Add a new object using push
-data.push({ name: 'XKR Louisthings', kills: 14 });
+app.get('/', (req, res) => {
+    res.send('Express is working!');
+});
 
-console.log(data);
-// Expected Output:
-// [
-//   { name: 'Alice', kills: 5 },
-//   { name: 'Bob', kills: 8 },
-//   { name: 'XKR Louisthings', kills: 14 }
-// ]
+app.listen(port, () => {
+    console.log(`Server running at http://localhost:${port}`);
+});

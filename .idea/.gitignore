@@ -1,4 +1,9 @@
 # Default ignored files
+data.json
+table.json
+package.json
+package-lock.json
+node_modules/
 /shelf/
 /workspace.xml
 # Editor-based HTTP Client requests

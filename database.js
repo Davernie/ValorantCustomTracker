@@ -1,20 +1,10 @@
 //const database = {name: 'KPISayonara', kills: '0'};
-const database = [];
 const fs = require('fs');
+let database = [];
 
 fs.readFile('table.json', 'utf8', (err, data) => {
-    if (err) {
-        if (err.code === 'ENOENT') {
-            // If the file does not exist, initialize an empty array
-            var database = [];
-        } else {
-            console.error('Error reading file:', err);
-            return;
-        }
-    } else {
-        // Parse the existing data
-        var database = JSON.parse(data);
-    }
+
+    database = JSON.parse(data);
 
     fs.readFile('data.json', 'utf8', (err, data) => {
         if (err) {
