@@ -4,6 +4,7 @@ table.json
 package.json
 package-lock.json
 node_modules/
+potato.json
 /shelf/
 /workspace.xml
 # Editor-based HTTP Client requests
