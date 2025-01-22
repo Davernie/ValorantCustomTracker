@@ -1,10 +1,27 @@
-//const database = {name: 'KPISayonara', kills: '0'};
 const fs = require('fs');
 let database = [];
 
-fs.readFile('table.json', 'utf8', (err, data) => {
+const filePath = 'C:/Code/ValorantCustomTracker/valoratcustomtracker/public/table.json';
 
-    database = JSON.parse(data);
+fs.readFile(filePath, 'utf8', (err, data) => {
+    if (err) {
+        // Handle file not existing or other read errors
+        if (err.code === 'ENOENT') {
+            console.log('table.json does not exist. Creating a new empty file.');
+            // Create an empty table.json
+            fs.writeFile(filePath, JSON.stringify([], null, 2), (writeErr) => {
+                if (writeErr) {
+                    console.error('Error creating table.json:', writeErr);
+                } else {
+                    console.log('Created new empty table.json');
+                }
+            });
+        } else {
+            console.error('Error reading file:', err);
+        }
+    } else {
+        database = JSON.parse(data);
+    }
 
     fs.readFile('data.json', 'utf8', (err, data) => {
         if (err) {
@@ -12,7 +29,6 @@ fs.readFile('table.json', 'utf8', (err, data) => {
             return;
         }
         const matchData = JSON.parse(data);
-
 
         for (let i = 0; i < 10; i++) {
             let found = false;
@@ -26,21 +42,19 @@ fs.readFile('table.json', 'utf8', (err, data) => {
                     found = true;
                 }
             }
-            if(!found){
+            if (!found) {
                 database.push({
                     name: matchData.data[0].players[i].name,
                     score: matchData.data[0].players[i].stats.score,
                     kills: matchData.data[0].players[i].stats.kills,
                     deaths: matchData.data[0].players[i].stats.deaths,
-                    assists: matchData.data[0].players[i].stats.assists });
+                    assists: matchData.data[0].players[i].stats.assists
+                });
             }
-
         }
 
-        //console.log(database);
-
         // Write the updated database array back to the JSON file
-        fs.writeFile('table.json', JSON.stringify(database, null, 2), (err) => {
+        fs.writeFile(filePath, JSON.stringify(database, null, 2), (err) => {
             if (err) {
                 console.error('Error writing to file:', err);
             } else {
