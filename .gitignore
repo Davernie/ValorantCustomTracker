@@ -1,5 +1,7 @@
 data.json
 table.json
-package.json
-package-lock.json
+# Ignore the root package.json
+/package.json
+/package-lock.json
+
 node_modules/
