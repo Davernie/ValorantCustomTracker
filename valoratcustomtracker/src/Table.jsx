@@ -6,7 +6,7 @@ const Table = () => {
     const [sortConfig, setSortConfig] = useState({ key: 'name', direction: 'ascending' });
 
     useEffect(() => {
-        fetch('https://my-table-json-bucket.s3.amazonaws.com/table.json')
+        fetch('https://valoranttracker.s3.eu-west-1.amazonaws.com/table.json')
             .then((response) => response.json())
             .then((data) => setData(data))
             .catch((error) => console.error('Error fetching data:', error));
