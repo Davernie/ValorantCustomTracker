@@ -34,10 +34,11 @@ fs.readFile(filePath, 'utf8', (err, data) => {
             let found = false;
             for (let j = 0; j < database.length; j++) {
                 if (database[j].name === matchData.data[0].players[i].name) {
-                    database[j].score += matchData.data[0].players[i].stats.score;
+                    database[j].score = Math.round((database[j].score * database[j].matches + (matchData.data[0].players[i].stats.score/(matchData.data[0].teams[0].rounds.won + matchData.data[0].teams[0].rounds.lost)))/(database[j].matches + 1));
                     database[j].kills += matchData.data[0].players[i].stats.kills;
                     database[j].deaths += matchData.data[0].players[i].stats.deaths;
                     database[j].assists += matchData.data[0].players[i].stats.assists;
+                    database[j].matches++;
                     j = database.length;
                     found = true;
                 }
@@ -45,10 +46,11 @@ fs.readFile(filePath, 'utf8', (err, data) => {
             if (!found) {
                 database.push({
                     name: matchData.data[0].players[i].name,
-                    score: matchData.data[0].players[i].stats.score,
+                    score: Math.round((matchData.data[0].players[i].stats.score/(matchData.data[0].teams[0].rounds.won + matchData.data[0].teams[0].rounds.lost))),
                     kills: matchData.data[0].players[i].stats.kills,
                     deaths: matchData.data[0].players[i].stats.deaths,
-                    assists: matchData.data[0].players[i].stats.assists
+                    assists: matchData.data[0].players[i].stats.assists,
+                    matches: 1
                 });
             }
         }

@@ -47,6 +47,7 @@ const Table = () => {
                     <th onClick={() => requestSort('kills')}>Kills</th>
                     <th onClick={() => requestSort('deaths')}>Deaths</th>
                     <th onClick={() => requestSort('assists')}>Assists</th>
+                    <th onClick={() => requestSort('matches')}>Matches</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -57,6 +58,7 @@ const Table = () => {
                         <td>{player.kills}</td>
                         <td>{player.deaths}</td>
                         <td>{player.assists}</td>
+                        <td>{player.matches}</td>
                     </tr>
                 ))}
                 </tbody>
