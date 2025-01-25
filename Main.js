@@ -1,5 +1,5 @@
 const apiKey = 'HDEV-569dd88f-0e03-4747-892d-2e8f682b670e';
-const url = 'https://beta.api.henrikdev.xyz/valorant/v4/matches/eu/pc/TSDavernie/0000';
+const url = 'https://beta.api.henrikdev.xyz/valorant/v4/matches/eu/pc/TSclairo/erin';
 //const url = 'https://beta.api.henrikdev.xyz/valorant/v4/matches/eu/pc/KPISayonara/gud?mode=custom';
 const fs = require('fs');
 
