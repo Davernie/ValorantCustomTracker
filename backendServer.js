@@ -13,7 +13,7 @@ app.get('/', (req, res) => {
             res.status(200).json(JSON.parse(data));
         }
     });
-});
+})
 
 app.use((req, res) => {
     res.status(404).send('URL not found');
