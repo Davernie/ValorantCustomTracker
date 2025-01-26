@@ -6,7 +6,7 @@ const Table = () => {
     const [sortConfig, setSortConfig] = useState({ key: 'name', direction: 'ascending' });
 
     useEffect(() => {
-        fetch('https://raw.githubusercontent.com/Davernie/database/main/table.json')
+        fetch('https://raw.githubusercontent.com/Daverniegit /database/main/table.json')
             .then((response) => response.json())
             .then((data) => setData(data))
             .catch((error) => console.error('Error fetching data:', error));
